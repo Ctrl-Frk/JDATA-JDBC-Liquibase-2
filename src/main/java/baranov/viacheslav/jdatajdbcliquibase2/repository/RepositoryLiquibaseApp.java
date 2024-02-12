@@ -2,6 +2,7 @@ package baranov.viacheslav.jdatajdbcliquibase2.repository;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,12 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@org.springframework.stereotype.Repository
-public class Repository {
+@Repository
+public class RepositoryLiquibaseApp {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private String script;
 
-    public Repository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public RepositoryLiquibaseApp(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
         this.script = read("select_product_name.sql");
     }
